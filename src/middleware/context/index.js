@@ -1,6 +1,6 @@
 const { Author, Book } = require("../models");
 
-// Export middleware.
+// Generate a per-request context.
 module.exports = (request, response, next) => {
   const { locals } = response;
 
