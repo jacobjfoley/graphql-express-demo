@@ -37,8 +37,11 @@ const resolvers = {
     },
   },
   Book: {
-    author: (parent, args, context) => {
-      return context.authorModel.getAuthorsByIds([parent.author]);
+    author: async (parent, args, context) => {
+      const authorData = await context.authorModel.getAuthorsByIds([
+        parent.author,
+      ]);
+      return authorData[0];
     },
   },
 };
