@@ -1,0 +1,24 @@
+{
+  "name": "graphql-express-demo",
+  "version": "1.0.0",
+  "description": "Demo code of a GraphQL+Express server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jacob Foley",
+  "license": "ISC",
+  "dependencies": {
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "graphql": "^14.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^2.0.2"
+  }
+}
