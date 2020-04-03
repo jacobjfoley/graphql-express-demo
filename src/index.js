@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(authentication);
 app.use(context);
 
-// Define routes.
+// Define routed middleware.
 app.get("/", health);
 app.post("/graphql", graphql);
 
