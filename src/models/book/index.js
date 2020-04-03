@@ -11,7 +11,7 @@ class Book {
   }
 
   // List all books.
-  async listBooks() {
+  async allBooks() {
     if (!this.context.requester.permissions["LIST_BOOKS"]) {
       throw new Error("Unauthorized");
     }
