@@ -12,11 +12,19 @@ class Book {
 
   // List all books.
   async listBooks() {
+    if (!this.context.requester.permissions["LIST_BOOKS"]) {
+      throw new Error("Unauthorized");
+    }
+
     return repository.listBooks(this.context);
   }
 
   // Gets books by their ids.
   async getBooksByIds(ids) {
+    if (!this.context.requester.permissions["VIEW_BOOKS"]) {
+      throw new Error("Unauthorized");
+    }
+
     return this.bookLoader(ids);
   }
 }

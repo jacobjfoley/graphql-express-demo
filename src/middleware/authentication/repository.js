@@ -1,6 +1,9 @@
 exports.getRequester = async () => {
   return {
-    LIST_AUTHORS: true,
-    VIEW_AUTHORS: true,
+    name: "Generic Requester",
+    permissions: {
+      LIST_AUTHORS: true,
+      VIEW_AUTHORS: true,
+    },
   };
 };
