@@ -1,4 +1,4 @@
-module.exports = async (request, response) => {
+module.exports = async (request, response, next) => {
   response.locals.data = {
     authors: {
       "1": {
@@ -40,4 +40,6 @@ module.exports = async (request, response) => {
       },
     },
   };
+
+  next();
 };
