@@ -22,7 +22,6 @@ const schema = buildSchema(`
 // Define resolvers.
 const resolvers = {
   allAuthors: (parent, args, context) => {
-    return [];
     return args.authorModel.listAuthors();
   },
 };

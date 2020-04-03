@@ -6,7 +6,7 @@ class Author {
     this.context = context;
 
     // DataLoaders.
-    this.authorLoader = new DataLoader(keys =>
+    this.authorLoader = new DataLoader((keys) =>
       repository.getAuthorById(context, keys)
     );
   }
