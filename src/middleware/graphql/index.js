@@ -16,17 +16,21 @@ const schema = buildSchema(`
 
   type Query {
     allAuthors: [Author]!
+    allBooks: [Book]!
   }
 `);
 
 // Define resolvers.
 const resolvers = {
-  allAuthors: (parent, args, context) => {
+  allAuthors: (parent, args) => {
     return args.authorModel.listAuthors();
+  },
+  allBooks: (parent, args) => {
+    return args.bookModel.listBooks();
   },
 };
 
-// Export our middleware.
+// Export GraphQL server middleware.
 module.exports = async (request, response) => {
   const { locals } = response;
   const { query, variables } = request.body;
