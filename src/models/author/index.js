@@ -5,7 +5,6 @@ class Author {
   constructor(context) {
     this.context = context;
 
-    // DataLoaders.
     this.authorLoader = new DataLoader((keys) =>
       repository.getAuthorById(context, keys)
     );
@@ -26,7 +25,7 @@ class Author {
       throw new Error("Unauthorized");
     }
 
-    return this.authorLoader(ids);
+    return this.authorLoader.load(ids);
   }
 }
 

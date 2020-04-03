@@ -25,7 +25,7 @@ class Book {
       throw new Error("Unauthorized");
     }
 
-    return this.bookLoader(ids);
+    return this.bookLoader.load(ids);
   }
 }
 

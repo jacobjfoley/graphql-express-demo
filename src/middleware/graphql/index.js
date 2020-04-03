@@ -1,7 +1,8 @@
-const { graphql, buildSchema } = require("graphql");
+const { graphql } = require("graphql");
+const { makeExecutableSchema } = require("graphql-tools");
 
-// Define a schema.
-const schema = buildSchema(`
+// Define our types.
+const typeDefs = `
   type Author {
     id: ID!
     name: String!
@@ -18,24 +19,32 @@ const schema = buildSchema(`
     allAuthors: [Author]!
     allBooks: [Book]!
   }
-`);
+`;
 
 // Define resolvers.
 const resolvers = {
-  allAuthors: (args, context) => {
-    return context.authorModel.allAuthors();
+  Query: {
+    allAuthors: (parent, args, context) => {
+      return context.authorModel.allAuthors();
+    },
+    allBooks: (parent, args, context) => {
+      return context.bookModel.allBooks();
+    },
   },
-  allBooks: (args, context) => {
-    return context.bookModel.allBooks();
+  Author: {
+    books: (parent, args, context) => {
+      return context.bookModel.getBooksByIds([parent.books]);
+    },
   },
-  books: (args, context) => {
-    console.log(args);
-    return null;
-  },
-  author: (args, context) => {
-    return null;
+  Book: {
+    author: (parent, args, context) => {
+      return context.authorModel.getAuthorsByIds([parent.author]);
+    },
   },
 };
+
+// Combine typedefs and resolvers into a schema.
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 // Export GraphQL server middleware.
 module.exports = async (request, response, next) => {
