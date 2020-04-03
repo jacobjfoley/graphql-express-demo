@@ -33,7 +33,7 @@ const resolvers = {
   },
   Author: {
     books: (parent, args, context) => {
-      return context.bookModel.getBooksByIds([parent.books]);
+      return context.bookModel.getBooksByIds(parent.books);
     },
   },
   Book: {

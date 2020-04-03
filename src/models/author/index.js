@@ -25,7 +25,7 @@ class Author {
       throw new Error("Unauthorized");
     }
 
-    return this.authorLoader.load(ids);
+    return ids.map((id) => this.authorLoader.load(id));
   }
 }
 
