@@ -1,12 +1,9 @@
 // List all authors in the database.
-exports.listAuthors = async () => {
-  // Retrieve data from a file, service or database using service clients
-  // stored in the request context.
-  return [
-    {
-      id: "123",
-      name: "Joe Bloggs",
-      books: [{ id: "456", name: "Just Blogging" }],
-    },
-  ];
+exports.listAuthors = async (context) => {
+  return context.data.authors;
+};
+
+// Get authors by their ids.
+exports.getAuthorsByIds = async (context, ids) => {
+  return ids.map((id) => context.data.authors[id]);
 };
