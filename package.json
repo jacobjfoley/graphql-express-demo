@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/**/*test.js"
   },
   "keywords": [],
   "author": "Jacob Foley",
@@ -16,9 +16,12 @@
     "graphql": "^14.6.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^2.0.2"
+    "mocha": "^7.1.1",
+    "prettier": "^2.0.2",
+    "sinon": "^9.0.1"
   }
 }
