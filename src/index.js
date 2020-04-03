@@ -5,7 +5,7 @@ const {
   graphql,
   health,
   mockData,
-} = require("./middleware/graphql");
+} = require("./middleware");
 
 const PORT = process.env.port || 3000;
 

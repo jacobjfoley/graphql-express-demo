@@ -1,4 +1,4 @@
-const { Author, Book } = require("../models");
+const { Author, Book } = require("../../models");
 
 // Generate a per-request context.
 module.exports = (request, response, next) => {

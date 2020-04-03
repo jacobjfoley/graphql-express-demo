@@ -22,20 +22,30 @@ const schema = buildSchema(`
 
 // Define resolvers.
 const resolvers = {
-  allAuthors: (parent, args) => {
-    return args.authorModel.listAuthors();
+  allAuthors: (args, context) => {
+    return context.authorModel.allAuthors();
   },
-  allBooks: (parent, args) => {
-    return args.bookModel.listBooks();
+  allBooks: (args, context) => {
+    return context.bookModel.allBooks();
+  },
+  books: (args, context) => {
+    console.log(args);
+    return null;
+  },
+  author: (args, context) => {
+    return null;
   },
 };
 
 // Export GraphQL server middleware.
-module.exports = async (request, response) => {
+module.exports = async (request, response, next) => {
   const { locals } = response;
   const { query, variables } = request.body;
 
-  const data = await graphql(schema, query, resolvers, locals, variables);
-
-  response.send(data);
+  try {
+    const data = await graphql(schema, query, resolvers, locals, variables);
+    response.send(data);
+  } catch (error) {
+    next(error);
+  }
 };

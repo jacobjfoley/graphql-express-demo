@@ -1,6 +1,6 @@
 // List all authors in the database.
 exports.listAuthors = async (context) => {
-  return context.data.authors;
+  return Object.values(context.data.authors);
 };
 
 // Get authors by their ids.

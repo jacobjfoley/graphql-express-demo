@@ -4,6 +4,8 @@ exports.getRequester = async () => {
     permissions: {
       LIST_AUTHORS: true,
       VIEW_AUTHORS: true,
+      LIST_BOOKS: true,
+      VIEW_BOOKS: true,
     },
   };
 };
