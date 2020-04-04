@@ -1,13 +1,18 @@
 {
   "name": "graphql-express-demo",
   "version": "1.0.0",
+  "private": true,
   "description": "Demo code of a GraphQL+Express server",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha src/**/*test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "graphql",
+    "express",
+    "demo"
+  ],
   "author": "Jacob Foley",
   "license": "ISC",
   "dependencies": {
