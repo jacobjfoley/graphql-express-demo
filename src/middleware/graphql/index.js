@@ -13,7 +13,7 @@ module.exports = async (request, response, next) => {
   const { query, variables } = request.body;
 
   try {
-    const data = await graphql(schema, query, resolvers, locals, variables);
+    const data = await graphql(schema, query, undefined, locals, variables);
     response.send(data);
   } catch (error) {
     next(error);
